@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-app: #ffffff;
+    --bg-panel: #ffffff;
+    --bg-raised: #f7f8fa;
+    --border-soft: #e6e8ec;
+    --text-main: #1d2129;
+    --text-soft: #4e5969;
+    --text-mute: #86909c;
+    --accent: #3b6ef5;
+    --accent-strong: #2a57d4;
+    --ok: #00b42a;
+    --warn: #ff7d00;
+    --err: #f53f3f;
+    --magic: #7b5bf0;
+  }
+
+  html,
+  body,
+  #app {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg-app);
+    color: var(--text-main);
+    font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d0d3d9;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b5b9c0;
+    background-clip: content-box;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-base-800 border border-base-600 rounded-card shadow-card;
+  }
+
+  .panel-hover {
+    @apply transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lift hover:border-brand/40;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-white hover:bg-ink/90 active:bg-ink disabled:bg-ink/40 disabled:cursor-not-allowed;
+  }
+
+  .btn-brand {
+    @apply btn bg-brand text-white hover:bg-brand-strong active:bg-brand-strong disabled:bg-brand/40 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-soft hover:text-ink hover:bg-base-700 active:bg-base-600 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply btn text-err hover:bg-err/10 hover:text-err active:bg-err/20 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .field {
+    @apply w-full rounded-lg bg-white border border-base-600 px-3 py-2 text-sm text-ink placeholder:text-ink-mute transition-colors;
+  }
+
+  .field:focus {
+    @apply border-brand outline-none ring-1 ring-brand/30;
+  }
+
+  .field-label {
+    @apply block text-xs font-medium text-ink-soft mb-1.5;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-pill px-2 py-0.5 text-xs font-medium;
+  }
+
+  .scroll-thin {
+    scrollbar-width: thin;
+  }
+
+  .wb-nav {
+    @apply flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-ink-soft transition-colors duration-150 hover:bg-base-700 hover:text-ink;
+  }
+
+  .wb-nav-active {
+    @apply bg-base-700 text-ink font-medium;
+  }
+
+  .wb-tag {
+    @apply rounded-full border border-base-600 bg-white px-3 py-1 text-xs text-ink-soft transition-colors hover:border-brand/50 hover:text-brand;
+  }
+
+  .wb-terminal {
+    @apply rounded-lg bg-[#1d2129] px-3 py-2 text-[12px] leading-relaxed text-[#c9cdd4];
+  }
+}
